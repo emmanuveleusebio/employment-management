@@ -1,0 +1,131 @@
+
+
+
+<div class="edit-employee col-md-12 col-lg-6 p-0 " id="edit-employee"> 
+    <div class="card   rounded-4  px-4 ">
+      <div class="heading ps-2 pt-4 pb-2 d-flex justify-content-between">
+        <h3 class="basic ">Edit Employee</h3>
+        <button  id="close-edit-page" onclick="closeEdit()"><i class="fa-solid fa-circle-xmark"></i></button>
+      </div>
+      
+      
+     <div class="profile d-flex align-items-center gap-2">
+      <label for="edit-uploadx" class="edit-uploadx-label text-center rounded-3 bg-light upload p-2 d-flex align-items-center justify-content-center gap-2">
+       
+        <input type="file" id="edit-uploadx" name="avatar" accept="image/jpg ,image/jpeg,image/png ">
+        
+        <div id="edit-imageContainer" class="img-container">
+        <img id="edit-imagePreview" class="img-preview rounded-2" src="" alt="">
+        </div>
+    </label>
+      <label class=" rounded-4 label-button" for="edit-uploadx">Change</label>
+     </div>
+     <div class="details-content">
+      <div class="row congested">
+        <div class="col-md-12 col-lg-4 my-2">
+          <label for="edit-salutation" class="text form-label star">Salutation</label>
+          <select  class="holder shadow-none form-select p-0 ps-2" id="edit-salutation"  >
+            <option value="">Select</option>
+            <option value="Mr">Mr</option>
+            <option value="Ms">Ms</option>
+            <option value="Mis">Mis</option>
+          </select> 
+          <p class="editErrorMessage"></p>    
+             </div>
+        <div class="col-md-12 col-lg-4 my-2">
+          <label for="editfirstName" class="text form-label star">First name</label>
+          <input type="text" class="holder shadow-none form-control p-3" id="editfirstName" placeholder="John">
+          <p class="editErrorMessage"></p>    
+        </div>
+        <div class="col-md-12 col-lg-4 my-2">
+          <label for="editlastName" class="text form-label star">Second name</label>
+          <input  type="text" class="holder shadow-none form-control p-3" id="editlastName" placeholder="Doe">
+          <p class="editErrorMessage"></p>    
+        </div>
+       </div>
+
+       <div class="row">
+        <div class="col-md-12 col-lg-6 my-2">
+          <label for="editemail" class="text form-label star">Email</label>
+          <input  type="email" id="editemail" class="holder shadow-none form-control p-3" placeholder="murali@gmail.com">
+          <p class="editErrorMessage"></p>    
+        </div>
+        <div class="col-md-12 col-lg-6 my-2">
+          <label for="edit-phone" class="text form-label star">Number</label>
+          <input  type="number" id="edit-phone" class="holder shadow-none form-control p-3" placeholder="Enter mobile number">
+          <p class="editErrorMessage"></p>    
+        </div>
+       </div>
+
+       <div class="row sex">
+        <div class="col-md-6 mt-2">
+          <label for="edit-dob" class="text  form-label star">Date of Birth</label>
+          <input  type="date" id="edit-dob"   class="holder shadow-none form-control p-3">
+          <p class="editErrorMessage"></p>    
+        </div>
+        <div class="col-md-6 mt-1">
+          <label  class="star text">Gender</label>
+          <div class="d-flex f">
+            <div class="col-lg-3 col- form-check m-3">
+              <input type="radio" class="form-check-input" id="edit-male" name="editedGender" value="Male">
+              <label for="edit-male" class="form-check-label light-letter">Male</label>
+            </div>
+            <div class="col-lg-3 col- form-check m-3">
+              <input  type="radio" class="form-check-input" id="edit-female" name="editedGender" value="Female">
+              <label  for="edit-female" class="form-check-label light-letter">Female</label>
+            </div>
+              
+          </div>
+        </div>
+       </div>
+       <div class="row">
+        <div class="col-md-12 my-2">
+          <label for="editqualifications"  class="text form-label star">Qualification</label>
+        <input  type="text" id="editqualifications" class="holder shadow-none form-control  p-3" placeholder="Enter qualification">
+        <p class="editErrorMessage"></p>    
+        </div>
+        
+       </div>
+       <div class="row">
+        <div class="col-md-6 my-2">
+          <label for="editaddress"  class="text form-label star">Address</label>
+        <input  type="text" id="editaddress" class="holder shadow-none form-control  p-3" placeholder="Enter address">
+        <p class="editErrorMessage"></p>    
+        </div>
+        <div class="col-lg-6 col-md-12 my-2">
+          <label for="edit-country" class="text form-label star">Country</label>
+          <input  type="text" id="edit-country" class="holder shadow-none form-control p-3"  placeholder="Enter Country">     
+          <p class="editErrorMessage"></p>    
+           </div>
+
+       </div>
+       <!-- <div class="row">
+        <div class="col-md-6 my-2">
+          <label for="editpassword"  class="text form-label star">Password</label>
+        <input type="text" id="editpassword" class="holder shadow-none form-control  p-3" placeholder="Enter password">
+        </div>
+       
+        
+       </div> -->
+       <div class="row pb-4">
+        <div class="col-lg-6 col-md-12 my-2">
+          <label for="edit-state" class="text form-label star">State</label>
+         <input  type="text" id="edit-state" class="holder shadow-none form-control p-3" placeholder="Enter state">
+         <p class="editErrorMessage"></p>    
+        </div>
+        <div class="col-md-6 my-2">
+          <label for="editcity" class="text form-label star">City</label>
+          <input  type="text" class="holder shadow-none form-control p-3" id="editcity" placeholder="Enter city">
+          <p class="editErrorMessage"></p>    
+        </div>
+       
+       </div>
+       <div class="add-employee-buttons pb-4 d-flex justify-content-end gap-2">
+        <button class="no-add" onclick="closeEdit()">Cancel</button>
+        <button class="add" id="addEdits">Save changes</button>
+       </div>
+    </div>
+
+    </div>
+
+  </div>  

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Page</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+ 
+    <div class="total-page " id="last-page">
+        <div class="hom main-body  d-flex ">
+          <div class="side-menu  py-3 d-flex flex-column justify-content-between">
+            <div class="f">
+              <div class="side-menu-heading pb-3 px-3">
+                <h4>Employee </h4>
+                <h3>Management</h3>
+            </div>
+                <div class="side-menu-list">
+                    <div class="row mx-2 py-5">
+                       <ul class="side-options">
+                        <li><a href="#"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+                        <li><a href="index.html"><i class="fa-solid fa-chart-simple"></i>Empoyees</a></li>
+                        <li><a href="#"><i class="fa-solid fa-user"></i>My Profile</a></li>
+                        <li><a href="#"><i class="fa-solid fa-lock"></i>Logout</a></li>
+                       </ul>
+                       
+                      </div>
+                </div>
+            </div>
+            
+                <div class="powered-by d-flex gap-2 align-items-center ms-2">
+                  <h6 class="m-0">Powered by</h6>
+                  <img src="/img/stackup.png" alt="">
+                  <h1 id="kk"></h1>
+                </div>
+            
+        </div>
+    
+        <div class="details-part d-flex flex-column" >
+            <div class="head d-flex justify-content-between">
+                <div class="details-heading">
+                    <h6>Dashboard/Employees</h6>
+                    <h5>Employees</h5>
+                </div>
+                <!-- <div class="search-bar d-flex align-items-center gap-3 ">
+                    <input type="text" class="form-control rounded-5 search bg-light border-0 ps-4" placeholder="Search">
+                    <i class="fa-regular fa-bell"></i>
+                    <img src="img/Elipse 5.png" alt="" class="rounded-5">
+                   
+                    <div class="search-icon">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div> -->
+            </div>
+    
+            <div class="card mx-auto personal-view p-3 my-3 rounded-4">
+    
+             <div class="bg-img">
+              <img src="/img/bgImg.png" alt="">
+              <div class="cover-img">
+                <div class="view-img">
+                  <img src="" id="view-img" alt="unable to load">
+                </div>
+                <p id="profileHolder">Mr. Michael Johnson</p>
+                <h6 id="profileEmail"></h6>
+               </div>
+             </div>
+             <div class="personal-details gap-4 d-flex flex-column">
+              <div class=" d-flex  gap-4">
+                <div class="dtl-box">
+                  <h5>Gender</h5>
+                  <h6 id="profileGender">Male</h6>
+                </div>
+                <div class="dtl-box">
+                  <h5>Age</h5>
+                  <h6 id="profileAge">33</h6>
+                </div>
+                <div class="dtl-box">
+                  <h5>Date of birth</h5>
+                  <h6 id="profileDob">20 December 1985</h6>
+                </div>
+                
+               </div>
+               <div class=" d-flex gap-4">
+                <div class="dtl-box">
+                  <h5>Mobile Number</h5>
+                  <h6 id="profilePhone">9876543210</h6>
+                </div>
+                <div class="dtl-box">
+                  <h5>Qualification</h5>
+                  <h6 id="profileQualification">Bachelor's Degree</h6>
+                </div>
+               
+                 
+               </div>
+               <div class=" d-flex gap-4">
+                <div class="dtl-box">
+                  <h5>Address</h5>
+                  <h6 id="profileAddress">789 Pine St Dummy Address,
+                    Chicago, Texas, USA 123456</h6>
+                </div>
+                <div class="dtl-box">
+                  <h5>Username</h5>
+                  <h6 id="profileUser">michaeljohnson</h6>
+                </div>
+               
+                
+               </div>
+               <div class=" d-flex  gap-4">
+                <div class="dtl-box">
+                  <h5>City</h5>
+                  <h6 id="profileCity">Male</h6>
+                </div>
+                <div class="dtl-box">
+                  <h5>State</h5>
+                  <h6 id="profileState">33</h6>
+                </div>
+                <div class="dtl-box">
+                  <h5>Country</h5>
+                  <h6 id="profileCountry">Country</h6>
+                </div>
+                
+               </div>
+      
+             </div>
+             <div class="detail-buttons pt-4 pb-2 d-flex justify-content-end gap-2">
+              <button class="del" id="show-details-delet" onclick="delPage()">Delete</button>
+              <button class="edit" id="show-details-edit">Edit details</button>
+             </div>
+    
+            </div>
+               
+            <div class="footer  py-3 gap-4 pe-4 d-flex justify-content-between d-flex mt-auto">
+              <div class="copyright px-3">
+               <p> © 2023  All Rights Reserved. Stackup</p>
+              </div>
+             <div class="terms">
+              <a href="#">Terms of Use</a>
+              <a href="#">Privacy and Policy</a>
+             </div>
+            </div>
+           
+    
+                
+                  
+                </div>
+
+
+
+
+
+                 <div class="edit-employee col-md-12 col-lg-6 p-0 " style="left: 444px; top: 20px;" id="edit-employee">  
+                  <div class="card   rounded-4  px-4 " style="overflow: visible; height: 100%;">
+                    <div class="heading ps-2 pt-4 pb-2 d-flex justify-content-between">
+                      <h3 class="basic ">Edit Employee</h3>
+                      <button onclick="closeEditPage()" id="close-edit-page"><i class="fa-solid fa-circle-xmark"></i></button>
+                    </div>
+                    
+                    
+                   <div class="profile d-flex align-items-center gap-2">
+                    <label for="edit-uploadx" class="edit-uploadx-label text-center rounded-3 bg-light upload p-2 d-flex align-items-center justify-content-center gap-2">
+                     
+                      <input type="file" id="edit-uploadx" name="avatar" accept="image/jpg ,image/jpeg,image/png ">
+                      
+                      <div id="edit-imageContainer" class="img-container">
+                      <img id="edit-imagePreview" class="img-preview rounded-2" src="" alt="">
+                      </div>
+                  </label>
+                    <label class=" rounded-4 label-button" for="edit-uploadx">Change</label>
+                   </div>
+                   <div class="details-content">
+                    <div class="row congested">
+                      <div class="col-md-12 col-lg-4 my-2">
+                        <label for="edit-salutation" class="text form-label star">Salutation</label>
+                        <select  class="holder shadow-none form-select p-0 ps-2" id="edit-salutation"  >
+                          <option value="">Select</option>
+                          <option value="Mr">Mr</option>
+                          <option value="Ms">Ms</option>
+                          <option value="Mis">Mis</option>
+                        </select> 
+                        <p class="editErrorMessage"></p>      
+                           </div>
+                      <div class="col-md-12 col-lg-4 my-2">
+                        <label for="editfirstName" class="text form-label star">First name</label>
+                        <input type="text" class="holder shadow-none form-control p-3" id="editfirstName" placeholder="John">
+                        <p class="editErrorMessage"></p>  
+                      </div>
+                      <div class="col-md-12 col-lg-4 my-2">
+                        <label for="editlastName" class="text form-label star">Second name</label>
+                        <input type="text" class="holder shadow-none form-control p-3" id="editlastName" placeholder="Doe">
+                        <p class="editErrorMessage"></p>  
+                      </div>
+                     </div>
+            
+                     <div class="row">
+                      <div class="col-md-12 col-lg-6 my-2">
+                        <label for="editemail" class="text form-label star">Email</label>
+                        <input type="email" id="editemail" class="holder shadow-none form-control p-3" placeholder="murali@gmail.com">
+                        <p class="editErrorMessage"></p>  
+                      </div>
+                      <div class="col-md-12 col-lg-6 my-2">
+                        <label for="edit-phone" class="text form-label star">Number</label>
+                        <input type="number" id="edit-phone" class="holder shadow-none form-control p-3" placeholder="Enter mobile number">
+                        <p class="editErrorMessage"></p>  
+                      </div>
+                     </div>
+            
+                     <div class="row sex">
+                      <div class="col-md-6 mt-2">
+                        <label for="edit-dob" class="text  form-label star">Date of Birth</label>
+                        <input type="date" id="edit-dob"   class="holder shadow-none form-control p-3">
+                        <p class="editErrorMessage"></p>  
+                      </div>
+                      <div class="col-md-6 mt-1">
+                        <label  class="star text">Gender</label>
+                        <div class="d-flex f">
+                          <div class="col-lg-3 col- form-check m-3">
+                            <input type="radio" class="form-check-input" id="edit-male" name="editedGender" value="Male">
+                            <label for="edit-male" class="form-check-label light-letter">Male</label>
+                          </div>
+                          <div class="col-lg-3 col- form-check m-3">
+                            <input type="radio" class="form-check-input" id="edit-female" name="editedGender" value="Female">
+                            <label for="edit-female" class="form-check-label light-letter">Female</label>
+                          </div>
+                        </div>
+                      </div>
+                     </div>
+                     <div class="row">
+                      <div class="col-md-12 my-2">
+                        <label for="editqualifications"  class="text form-label star">Qualification</label>
+                      <input type="text" id="editqualifications" class="holder shadow-none form-control  p-3" placeholder="Enter qualification">
+                      <p class="editErrorMessage"></p>  
+                      </div>
+                      
+                     </div>
+                     <div class="row">
+                      <div class="col-md-6 my-2">
+                        <label for="editaddress"  class="text form-label star">Address</label>
+                      <input type="text" id="editaddress" class="holder shadow-none form-control  p-3" placeholder="Enter address">
+                      <p class="editErrorMessage"></p>  
+                      </div>
+                      <div class="col-lg-6 col-md-12 my-2">
+                        <label for="edit-country" class="text form-label star">Country</label>
+                        <input type="text" id="edit-country" class="holder shadow-none form-control p-3"  placeholder="Enter Country">  
+                        <p class="editErrorMessage"></p>     
+                         </div>
+        
+                     </div>
+                     <!-- <div class="row">
+                      <div class="col-md-6 my-2">
+                        <label for="editpassword"  class="text form-label star">Password</label>
+                      <input type="text" id="editpassword" class="holder shadow-none form-control  p-3" placeholder="Enter password">
+                      </div>
+                     
+                      
+                     </div> -->
+                     <div class="row pb-4">
+                      <div class="col-lg-6 col-md-12 my-2">
+                        <label for="edit-state" class="text form-label star">State</label>
+                       <input type="text" id="edit-state" class="holder shadow-none form-control p-3" placeholder="Enter state">
+                       <p class="editErrorMessage"></p>  
+                      </div>
+                      <div class="col-md-6 my-2">
+                        <label for="editcity" class="text form-label star">City</label>
+                        <input type="text" class="holder shadow-none form-control p-3" id="editcity" placeholder="Enter city">
+                        <p class="editErrorMessage"></p>  
+                      </div>
+                     
+                     </div>
+                     <div class="add-employee-buttons pb-4 d-flex justify-content-end gap-2">
+                      <button class="no-add" id="no-add" onclick=" closeEditPage()">Cancel</button>
+                      <button class="add" id="addEdits" >Save changes</button>
+                     </div>
+                  </div>
+          
+                  </div>
+            
+                </div>  
+        
+        
+        
+        
+        
+        
+              
+            </div>
+           
+        
+               
+            </div>
+           
+        </div>
+
+
+
+
+
+
+        <!-- ! delete -------------------------------------------------------------------------- -->
+        <div class="delete-page p-4 rounded-4 flex-column gap-4 gap-3" id="delete-page" style="top: 350px; left: 500px; ">
+          <div class="delete-heading d-flex justify-content-between">
+            <h3>Delete employee</h3>
+            <button onclick="closeDelPage()" id="del-close"><i class="fa-solid fa-x"></i></button>
+
+          </div>
+        <div class="delete-conform">
+          <h5>Are you sure you want to delete this employee?</h5>
+        </div>
+          <div class="delete-button d-flex justify-content-end gap-2">
+            <button class="cancel" onclick="closeDelPage()" id="no-del">Cancel</button>
+          <button class="delete delete-style" id="delete-conformation"> <a href="/api/user/home">Delete </a> </button>
+          </div>
+        </div>
+  <!-- <script   src="script.js"></script> -->
+<script   src="/js/view.js"></script>
+</body>
+</html>

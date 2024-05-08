@@ -1,0 +1,151 @@
+
+    
+    <div class="details col-md-12 col-lg-6 p-0 " id="details">
+        <div class="card w  rounded-4  px-4 ">
+          <div class="heading ps-2 pt-4 pb-2 d-flex justify-content-between">
+            <h3 class="basic ">Basic Details</h3>
+            <button id="close-add-page" onclick="closeAddPage()"><i class="fa-solid fa-circle-xmark"></i></button>
+          </div>
+          
+          
+        <form action="/api/users" method="post" id="add_users">
+      <label for="uploadx" class="uploadx-label text-center rounded-3 bg-light upload p-2 d-flex align-items-center justify-content-center gap-2">
+        <div class="upload-img-text">
+          <i class="upload-icon fa-solid fa-download py-0 m-y-0"></i>
+          <h4 class="py-0 m-y-0">Upload image</h4>
+          <input type="file" id="uploadx" name="avatar" accept="image/jpg ,image/jpeg,image/png " onchange="addImageCall()">
+          <h6 class="py-0 m-y-0">png/jpg\, files are allowed</h6>
+    
+        </div>
+        <div id="imageContainer" class="img-container">
+        <img id="imagePreview" class="img-preview" alt="">
+      
+      </img>
+        </div>
+    </label>
+          <div class="details-content">
+            <div class="row congested">
+              <div class="col-md-12 col-lg-4 my-2">
+                <label for="salutation " class="text form-label star">Salutation</label>
+                <select  class="holder shadow-none form-select p-0 ps-2" id="salutation" name="salutation" >
+                  <option value="">Select</option>
+                  <option value="Mr">Mr</option>
+                  <option value="Ms">Ms</option>
+                  
+                </select> 
+                <p class="errorMsg">Fill Salutation</p>
+                   </div>
+              <div class="col-md-12 col-lg-4 my-2">
+                <label for="firstName" class="text form-label star">First name</label>
+                <input type="text" class="holder shadow-none form-control p-3" id="firstName" placeholder="John" name="firstName">
+                <p class="errorMsg" id="errorFirstName">Fill First Name</p>
+              </div>
+              <div class="col-md-12 col-lg-4 my-2">
+                <label for="lastName" class="text form-label star">Second name</label>
+                <input type="text" class="holder shadow-none form-control p-3" id="lastName" placeholder="Doe" name="lastName">
+                <p class="errorMsg" id="errorLastName">Fill Last Name</p>
+              </div>
+             </div>
+    
+             <div class="row">
+              <div class="col-md-12 col-lg-6 my-2">
+                <label for="email" class="text form-label star">Email</label>
+                <input type="email" id="email" class="holder shadow-none form-control p-3" placeholder="murali@gmail.com" name="email">
+                <p class="errorMsg" id="">Fill Email</p>
+              </div>
+              <div class="col-md-12 col-lg-6 my-2">
+                <label for="phone" class="text form-label star">Number</label>
+                <input type="number" id="phone" class="holder shadow-none form-control p-3" placeholder="Enter mobile number" name="phone">
+                <p class="errorMsg" id="phoneNumber">Fill Phone Number</p>
+              </div>
+             </div>
+    
+             <div class="row sex">
+              <div class="col-md-6 mt-2">
+                <label for="dob" class="text  form-label star">Date of Birth</label>
+                <input type="date" id="dob"   class="holder shadow-none form-control p-3" name="dob">
+                <p class="errorMsg" id="errorDob">Fill DOB</p>
+              </div>
+              <div class="col-md-6 mt-1">
+                <label class="star text">Gender</label>
+                <div class="d-flex f">
+                  <div class="col-lg-3 col- form-check m-3">
+                    <input type="radio" class="form-check-input" id="check-male" name="gender" value="Male">
+                    <label for="check-male" class="form-check-label light-letter">Male</label>
+                  </div>
+                  <div class="col-lg-3 col- form-check m-3">
+                    <input type="radio" class="form-check-input" id="check-female" name="gender" value="Female">
+                    <label for="check-female" class="form-check-label light-letter">Female</label>
+                  </div>
+                 
+                </div>
+                <p class="genderNull">Choose Gender</p>
+              </div>
+             </div>
+             <div class="row">
+              <div class="col-md-6 my-2">
+                <label for="qualifications"  class="text form-label star">Qualification</label>
+              <input type="text" id="qualifications" class="holder shadow-none form-control  p-3" placeholder="Enter qualification" name="qualifications">
+              <p class="errorMsg" id="errorQualification">Fill Qualification</p>
+              </div>
+              <div class="col-md-6 my-2">
+                <label for="password"  class="text form-label star">Password</label>
+              <input type="password" id="password" class="holder shadow-none form-control  p-3" placeholder="Enter password" autocomplete="off" name="password">
+              <p class="errorMsg" id="errorPassword">Fill password</p>
+              </div>
+             </div>
+             <div class="row">
+              <div class="col-md-12 my-2">
+                <label for="address"  class="text form-label star">Address</label>
+              <input type="text" id="address" class="holder shadow-none form-control  p-3" placeholder="Enter address" name="address">
+              <p class="errorMsg" id="errorAddress">Fill Address</p>
+              </div>
+             </div>
+             <div class="row">
+              <div class="col-lg-6 col-md-12 my-2">
+                <label for="country" class="text form-label star">Country</label>
+                <select name="country"class="holder shadow-none form-select p-0 ps-2" id="country">
+                  <option value="">Select Country</option>
+                  <option value="india">india</option>
+                  <option value="pakistan">pakistan</option>
+                 
+                </select> 
+                <p class="errorMsg" id="errorCountry">Fill Country</p>      
+                 </div>
+              <div class="col-lg-6 col-md-12 my-2">
+                <label for="state" class="text form-label star">State</label>
+                <select name="state"class=" shadow-none form-select p-0 ps-2" id="state">
+                  <option value="">Select State</option>
+                  <option value="kerala">kerala</option>
+                  <option value="tamilnadu">tamilnadu</option>
+                  
+                  
+                </select>
+                <p class="errorMsg" id="errorState">Fill State</p>
+              </div>
+             </div>
+             <div class="row pb-4">
+              <div class="col-md-6 my-2">
+                <label for="city" class="text form-label star">City</label>
+                <input type="text" class="holder shadow-none form-control p-3" id="city" placeholder="Enter city" name="city">
+                <p class="errorMsg" id="errorCity">Fill City</p>
+              </div>
+              <div class="col-md-6 my-2">
+                <label for="pin" class="text form-label star">Pin/Zip</label>
+                <input type="text" class="holder shadow-none form-control p-3" id="pin" placeholder="Enter Pin/Zip" name="pin">
+                <p class="errorMsg" id="errorPin">Fill Pin/Zip</p>
+              </div>
+             </div>
+             <div class="add-employee-buttons pb-4 d-flex justify-content-end gap-2">
+              <button class="no-add"  type="button" onclick="closeAddPage()">Cancel</button>
+              <button class="add" id="addMember" type="submit">Add Employee</button>
+             </div>
+          </div>
+          
+         
+        </form> 
+    
+        </div>
+    
+      </div>
+    
