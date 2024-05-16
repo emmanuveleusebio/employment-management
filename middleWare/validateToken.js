@@ -1,29 +1,3 @@
-// const asyncHandler = require('express-async-handler');
-// const jwt = require('jsonwebtoken');
-
-// const validateToken = asyncHandler(async(req, res, next) => {
-//     let token;
-//      token = jwt.sign({ userId: user.id }, process.env.ACCESS_TOKEN_SECRET);
-//     let authHeader = req.headers.Authorization || req.headers.authorization;
-//     if(authHeader && authHeader.startsWith("bearer"))
-//     token = authHeader.split(' ')[1]
-//     jwt.verify(token, process.env.ACCESS_TOKEN_SECERT, (err, decoded) => {
-//         if(err){
-//             res.status(401);
-//             throw new Error("user is not authorized");
-//         }
-//         req.user = decoded.user;
-//         next();
-//         console.log("decoded");
-//     })
-
-
-// });
-
-
-// module.exports = validateToken;
-
-
 
 
 const session = require("express-session");
@@ -46,4 +20,17 @@ const isAuth = (req, res, next) => {
     }
 };
 
-module.exports = { isAuth, sessionMid};
+
+const logout = (req, res, next) => {
+   
+    req.session.destroy((err) => {
+        if (err) {
+            console.error("Error destroying session:", err);
+            return next(err);
+        }
+        res.redirect("/api/log/login"); 
+    });
+};
+
+
+module.exports = { isAuth, sessionMid, logout};

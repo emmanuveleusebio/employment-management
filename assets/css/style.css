@@ -589,3 +589,24 @@ padding: 10px;
 .ase{
   border-radius: 55px;
 }
+
+
+
+.delete {
+ 
+  padding: 5px 10px;
+  background-color: #f00;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+#viewDel {
+ 
+  color: inherit;
+  text-decoration: none;
+}
+
+

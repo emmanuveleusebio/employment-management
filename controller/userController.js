@@ -2,7 +2,8 @@ const asyncHandler = require('express-async-handler');
 const users = require('../model/userModel')
 const bcrypt = require('bcrypt')
 const nodemailer = require('nodemailer')
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const { isAuth } = require('../middleWare/validateToken');
 
 const generateOTP = () =>{
     return Math.floor(100000 + Math.random() * 900000);
@@ -28,11 +29,11 @@ const registerUser = asyncHandler(async (req, res) => {
         res.status(400);
         throw new Error("enter values")
     }
-    const userAvailable = await users.findOne({email})
-    if(userAvailable){
-        res.status(400);
-        throw new Error("user already exist in this email");
-    }
+    // const userAvailable = await users.findOne({email})
+    // if(userAvailable){
+    //     res.status(400);
+    //     throw new Error("user already exist in this email");
+    // }
 
     const otp = generateOTP();
     otpCache[email] = otp;
@@ -48,6 +49,8 @@ const registerUser = asyncHandler(async (req, res) => {
 
     }
     await transporter.sendMail(mailOption);
+    
+    res.status(200).json({ message: "OTP sent successfully." });
 });
 
 const createUser = asyncHandler(async (req, res) => {
@@ -63,17 +66,21 @@ const createUser = asyncHandler(async (req, res) => {
             userName,
             email,
             password:hashedPassword
+            
         });
         console.log(`new user created${user}`)
     
         if(user){
-            res.status(201)
+            req.session.isAuth = true;
+            
+            res.status(200).redirect('/api/user/home'); 
     
         } else {
             res.status(400)
             throw new Error("user data is not valid")
             delete otpCache[email];
         }
+       
     } else {
         console.log("this otp is not matching",savedOTP,otp)
         delete otpCache[email];
@@ -100,20 +107,11 @@ const loginUser = asyncHandler(async (req, res) => {
         const passwordMatch = await bcrypt.compare(password, user.password);
 
         if (passwordMatch) {
-        //     const accessToken = jwt.sign({
-        //         user:{
-        //             Name: user.userName,
-        //             email: user.email,
-        //             id: user.id,
-        //         },
-        //     },
-        //     process.env.ACCESS_TOKEN_SECERT,
-        //     {expiresIn: "1m"}
-        // );
-        // res.status(200).json({accessToken})
+       
 
         
         req.session.isAuth = true;
+        
              res.status(200).redirect('/api/user/home')
         } else {
             res.status(401).json({ message: 'Invalid details' });
@@ -124,34 +122,9 @@ const loginUser = asyncHandler(async (req, res) => {
     }
 });
 
-
-// const loginUser = asyncHandler(async (req, res) => {
-//     const {email, password} = req.body;
-//     if(!email || !password){
-//         res.status(400);
-//         throw new Error("all fields are mandatory");
-//     }
-
-//     const user = await users.findOne({email});
-//     if(user && (await bcrypt.compare(password, user.password))){
-
-//         const accessToken = jwt.sign({
-//             user: {
-//                 userName: user.userName,
-//                 email: user.email,
-//                 id: user.id,
-//             },
-//         }, process.env.ACCESS_TOKEN_SECERT,
-//         {expiresIn: "1m"}
-//     )
-
-//         res.status(200).json({accessToken})
-//     } else {
-//         res.status(401);
-//         throw new Error("not valid")
-//     }
-
-// })
+// const logout = asyncHandler(async (req, res) => {
+//    isAuth.logout
+// });
 
 
 const currentUser = asyncHandler(async (req, res) => {

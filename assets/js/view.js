@@ -387,7 +387,7 @@ const removeValidationError = (serial) => {
                     const uploadImage = document.getElementById("edit-uploadx");
                     const formData = new FormData();
                     formData.append("avatar", uploadImage.files[0]);
-                    fetch(`http://localhost:3000/employees/${editId}/avatar`, {
+                    fetch(`http://localhost:5001/api/user/${editId}/avatar`, {
                        method: 'POST',
                        body: formData
                     })

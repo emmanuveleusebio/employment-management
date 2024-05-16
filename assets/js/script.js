@@ -20,16 +20,16 @@ async function readEmp() {
         })
         .then((data) => {
             console.log(data);
-            showData(data, 1)
+            showData(data, 1, 5)
 
         })
 
     }
 
-    function showData(data, current){
+    function showData(data, current, number){
         var temp = "";
    
-           var count = (current-1)*2;
+           var count = (current-1)*number;
            count++
             data.users.forEach((emp) => {
 
@@ -595,7 +595,7 @@ console.log('kjdfhekfcslkefc')
                   const uploadImage = document.getElementById("edit-uploadx");
                   const formData = new FormData();
                   formData.append("avatar", uploadImage.files[0]);
-                  fetch(`http://localhost:3000/employees/${editId}/avatar`, {
+                  fetch(`http://localhost:5001/api/user/${editId}/avatar`, {
                      method: 'POST',
                      body: formData
                   })
@@ -677,8 +677,9 @@ async function deletePage(id) {
             },
         })
         .then((res) => {
-            console.log("deleted")
-    location.reload()
+            if (res.ok) {               
+                location.reload();
+            } 
         })
        
         
@@ -748,16 +749,21 @@ searchBar.addEventListener('input', async ()=> {
     }
 })
 
-
-
+let number = document.getElementById('numbers');
+number.addEventListener('change', ()=> {
+    fetchData(1)
+   
+})
 fetchData(1)
 async function fetchData(num){
 
     try {
-       const response = await fetch(`http://localhost:5001/api/user/pagination?page=${num}`)
+        let number = document.getElementById('numbers').value;
+       
+       const response = await fetch(`http://localhost:5001/api/user/pagination?page=${num}&pageSize=${number}`)
        const data = await response.json();
        renderPaginationButtons(data.pagination.totalPage, data.pagination.currentPage);
-        showData(data, data.pagination.currentPage);
+        showData(data, data.pagination.currentPage, number);
 
     } catch (error) {
         
@@ -779,3 +785,18 @@ function renderPaginationButtons(totalPage, currentPage){
         paginationContainer.appendChild(pageLi);
     }
 }
+
+
+
+var logout = document.getElementById('Logout')
+logout.addEventListener('click', () => {
+
+    fetch('http://localhost:5001/api/log/logout', {
+    method: 'GET'
+})
+.then((res) => {
+    if (res.ok){
+        window.location.href = res.url;
+    }
+})
+})

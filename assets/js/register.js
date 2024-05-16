@@ -1,6 +1,7 @@
 
 
 function login(){
+   
     document.getElementById('otp').style.display = "block"
     document.getElementById('otpLabel').style.display = "block"
     document.getElementById('otpButton').style.display = "block"
@@ -24,6 +25,14 @@ function login(){
         },
         body: JSON.stringify(loginDetails),
     })
+    // .then((res) =>{
+    //     if(res.ok){
+    //         document.getElementById('otp').style.display = "block"
+    //         document.getElementById('otpLabel').style.display = "block"
+    //         document.getElementById('otpButton').style.display = "block"
+    //         document.getElementById('submit').style.display = "none"
+    //     }
+    // })
 }
 
 
@@ -48,5 +57,10 @@ console.log(loginDetails, "this is the login details")
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(loginDetails),
+    })
+    .then(res =>{
+        if (res.ok){
+            window.location.href = res.url;
+        }
     })
 }

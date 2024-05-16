@@ -22,6 +22,6 @@ function login(){
     .then(res =>{
         if (res.ok){
             window.location.href = res.url;
-        }
+        }   
     })
 }

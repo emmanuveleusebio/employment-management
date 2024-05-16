@@ -1,4 +1,4 @@
-body {
+ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -40,3 +40,24 @@ body {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+
+
+#register_btn {
+ 
+  padding: 5px 10px;
+  
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+#register_btn {
+ 
+  color: inherit;
+  text-decoration: none;
+} 
+
+

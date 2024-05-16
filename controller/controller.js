@@ -1,6 +1,6 @@
 const asyncHandler = require('express-async-handler');
 const user = require('../model/empModel')
-
+const { isAuth } = require('../middleWare/validateToken');
 
 
 
@@ -99,8 +99,9 @@ const delUsers = asyncHandler(async (req,res) => {
         throw new error("emp not found")
     }
    await emp.deleteOne();
-//    res.redirect('/api/user/home');
-     res.status(200)
+//    req.session.isAuth = true;
+//      res.status(200).redirect('/api/user/home');
+res.status(200).json({ message: "User deleted successfully" });
 })
 
 
@@ -123,7 +124,7 @@ const postAvatar = asyncHandler(async (req, res) => {
 
 })
 
-
+// !search-----------------------------------------------------------------------------------
 const searchData = asyncHandler(async (req, res) => {
     const searchQuery = req.query.search;
 
@@ -139,7 +140,7 @@ const searchData = asyncHandler(async (req, res) => {
                 }
             }
         ]);
-        console.log(users,"this is the user of search")
+        // console.log(users,"this is the user of search")
         res.status(200).json(users);
     } catch (error) {
         console.error('Error searching data:', error);
@@ -147,10 +148,11 @@ const searchData = asyncHandler(async (req, res) => {
     }
 });
 
+
+//! pagination------------------------------------------------------------------------------------
 const pagination = asyncHandler(async (req, res) => {
     const page = parseInt(req.query.page) || 1;
-    const pageSize = 2;
-
+    const pageSize = parseInt(req.query.pageSize) || 5;
     try {
         const totalUsersCount = await user.countDocuments();
         const totalPage = Math.ceil(totalUsersCount / pageSize);
