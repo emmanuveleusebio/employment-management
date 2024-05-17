@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema({
     email:{
         type: String,
         require:[true, "please enter email"],
-        unique:[true, "email is already in use"]
+        // unique:[true, "email is already in use"]
     },
     password:{
         type: String,
@@ -16,9 +16,7 @@ const userSchema = mongoose.Schema({
     },
 
 
-},{
-    timestamps:true
-}, { collection: 'user' });
+},{ timestamps: true, collection: 'user' });
 
 
  module.exports = mongoose.model("users", userSchema);

@@ -464,7 +464,7 @@ function closeDelPage() {
             if(res.ok){
                 console.log('deleted user')
                 
-                window.location.href ='/api/user/home';
+                window.location.href ='/';
                 
             }
         })

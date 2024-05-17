@@ -58,6 +58,6 @@ const empSchema = mongoose.Schema({
         type: String,
       
        }
-}, { collection: 'employees' })
+},{ timestamps: true, collection: 'employees' });
 
 module.exports = mongoose.model("user", empSchema);
